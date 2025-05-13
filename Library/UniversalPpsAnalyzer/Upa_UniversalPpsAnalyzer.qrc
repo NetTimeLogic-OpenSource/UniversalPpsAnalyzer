@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>HelpMenu/NetTimeLogic.png</file>
+    <file>PpsTab/Ok.png</file>
+    <file>PpsTab/Nok.png</file>
+</qresource>
+</RCC>

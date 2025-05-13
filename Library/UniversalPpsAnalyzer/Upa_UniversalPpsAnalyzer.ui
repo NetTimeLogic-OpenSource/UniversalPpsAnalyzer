@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Upa_UniversalPpsAnalyzer</class>
+ <widget class="QMainWindow" name="Upa_UniversalPpsAnalyzer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1380</width>
+    <height>821</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>NetTimeLogic GmbH - Universal Pps Analyzer</string>
+  </property>
+  <widget class="QWidget" name="Upa_MainWindow">
+   <widget class="QTabWidget" name="Upa_MainTab">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1380</width>
+      <height>800</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="currentIndex">
+     <number>-1</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideRight</enum>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="Upa_MainMenu">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1380</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="Upa_FileMenu">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="Upa_Exit"/>
+   </widget>
+   <widget class="QMenu" name="Upa_HelpMenu">
+    <property name="title">
+     <string>?</string>
+    </property>
+    <addaction name="Upa_About"/>
+   </widget>
+   <addaction name="Upa_FileMenu"/>
+   <addaction name="Upa_HelpMenu"/>
+  </widget>
+  <action name="Upa_Exit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="Upa_About">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Upa_PpsConfigScreen</class>
+ <widget class="QWidget" name="Upa_PpsConfigScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>630</width>
+    <height>670</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Configuration</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QGroupBox" name="PpsConfigGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>591</width>
+     <height>601</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Configuration</string>
+   </property>
+   <widget class="QLineEdit" name="PpsDelayPpsRefValue">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>70</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPpsRefLabel">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>70</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS REF [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsAnalyzerLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS Analyzer</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="PpsAnalyzerComboBox">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>30</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPps1Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>100</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS 1 [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsDelayPps1Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>100</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPps2Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>130</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS 2 [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsDelayPps2Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>130</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPps3Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>160</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS 3 [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsDelayPps3Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>160</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPps4Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>190</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS 4 [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsDelayPps4Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>190</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPps5Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>220</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS 5 [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsDelayPps5Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>220</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPps6Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>250</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS 6 [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsDelayPps6Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>250</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPps7Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>280</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS 7 [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsDelayPps7Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>280</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsDelayPps8Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>310</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS 8 [ns]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsDelayPps8Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>310</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PpsChangeDelaysAndNamesButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Delays and Names</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraph1CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>100</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS 1</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraph2CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>130</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS 2</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraph3CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>160</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS 3</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraph4CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>190</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS 4</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraph5CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>220</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS 5</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraph6CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>250</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS 6</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraph7CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>280</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS 7</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraph8CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS 8</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsNamePps2Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>130</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS_02</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsNamePps8Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>310</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS_08</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsNamePps5Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>220</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS_05</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsNamePps3Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>160</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS_03</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsNamePps4Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>190</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS_04</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsNamePps7Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>280</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS_07</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsNamePps1Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>100</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS_01</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsNamePps6Value">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>250</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PPS_06</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsNamePps1Label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>100</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name PPS 1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsNamePps3Label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>160</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name PPS 3</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsNamePps5Label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>220</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name PPS 5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsNamePps8Label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name PPS 8</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsNamePps2Label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>130</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name PPS 2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsNamePps6Label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>250</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name PPS 6</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsNamePps7Label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>280</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name PPS 7</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsNamePps4Label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>190</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name PPS 4</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="PpsAnalyzerRefSelectComboBox">
+    <property name="geometry">
+     <rect>
+      <x>399</x>
+      <y>70</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="currentText">
+     <string>PPS REF</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>PPS REF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PPS 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PPS 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PPS 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PPS 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PPS 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PPS 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PPS 7</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PPS 8</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="PpsAnalyzerRefSelectLabel">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>70</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Manual Select Reference</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="PpsAnalyzerVersionValue">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>30</y>
+      <width>75</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>NA</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PpsAnalyzerVersionLabel">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>30</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Version</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PpsChangeReferenceButton">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>350</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Reference</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsGraphRefCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>70</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show PPS REF</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="PpsCalculateVarianceCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>390</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Calculate Allan Deviation</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="PpsDoneButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>630</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Done</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
