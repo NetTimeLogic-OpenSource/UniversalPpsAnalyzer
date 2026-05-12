@@ -36,7 +36,7 @@ static QList<QUdpSocket*> eth_sockets;
 
 Upa_CommunicationLib::Upa_CommunicationLib()
 {
-#if QT_MAJOR_VERSION < 6
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     com_lock = new QMutex(QMutex::Recursive);
 #else
     com_lock = new QRecursiveMutex();

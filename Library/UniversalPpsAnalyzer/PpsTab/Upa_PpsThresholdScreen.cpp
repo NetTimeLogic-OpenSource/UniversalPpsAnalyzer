@@ -310,7 +310,7 @@ void Upa_PpsThresholdScreen::pps_load_config(void)
         QByteArray temp_line = temp_file.readLine();
         QString temp_string = QString::fromUtf8(temp_line.data());
 
-        QRegularExpression sep("\\s+");
+        QRegularExpression sep("[;\n]");
         for (int i = 0; i < pps_tab->pps_boards.size(); i++)
         {
             if (true == temp_string.startsWith(pps_tab->pps_boards.at(i)->com_port))
@@ -340,13 +340,13 @@ void Upa_PpsThresholdScreen::pps_save_config(void)
         for (int j = 0; j < Upa_PpsPerBoard; j++)
         {
             temp_string.append(pps_tab->pps_boards.at(i)->com_port);
-            temp_string.append(" ");
+            temp_string.append(";");
             temp_string.append(QString::number(pps_tab->pps_boards.at(i)->pps_ts[j].ts_core_config->core_instance_nr));
-            temp_string.append(" ");
+            temp_string.append(";");
             temp_string.append(QString::number(pps_tab->pps_boards.at(i)->pps_ctrl[j].pps_threshold_high));
-            temp_string.append(" ");
+            temp_string.append(";");
             temp_string.append(QString::number(pps_tab->pps_boards.at(i)->pps_ctrl[j].pps_threshold_low));
-            temp_string.append(" ");
+            temp_string.append(";");
             temp_string.append(QString::number(pps_tab->pps_boards.at(i)->pps_ctrl[j].pps_threshold_enabled));
             temp_string.append("\n");
         }

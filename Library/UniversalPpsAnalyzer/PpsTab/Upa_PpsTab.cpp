@@ -193,6 +193,7 @@ Upa_PpsGui::Upa_PpsGui()
     pps_board = NULL;
     pps_index = 0;
     pps_name.clear();
+    pps_color.clear();
     pps_show = 0;
     pps_max_diff = 0;
     pps_min_diff = 0;
@@ -210,6 +211,7 @@ Upa_PpsGui::~Upa_PpsGui()
     pps_board = NULL;
     pps_index = 0;
     pps_name.clear();
+    pps_color.clear();
     pps_max_diff = 0;
     pps_min_diff = 0;
     pps_avg_diff = 0.0;
@@ -526,6 +528,7 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
         for (int j = 0; j < Upa_PpsPerBoard; j++)
         {
             QString temp_name;
+            QString temp_color;
             QLineSeries* temp_line_series = new QLineSeries();
             if (upa->use_open_gl == 1)
             {
@@ -536,56 +539,56 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
             temp_line_series->setPen(temp_pen);
 
             temp_name.clear();
+            temp_color.clear();
             temp_name.append(pps_boards.at(i)->com_port);
             if (j == 0) // this is the reference
             {
                 temp_name.append("_REF (");
                 temp_name.append(pps_boards.at(i)->com_port);
                 temp_name.append("_PPS_REF)");
-                QColor temp_color;
-                temp_color.setRgb(230, 230, 230);
-                temp_line_series->setColor(temp_color);
+                temp_color.append("#E6E6E6");
+                temp_line_series->setColor(QColor(temp_color));
             }
             else
             {
                 temp_name.append("_PPS_");
                 temp_name.append(QString::number(j));
-                QColor temp_color;
                 switch (j) // only 8 Input PPS per analyzer
                 {
                     case 1:
-                        temp_color.setRgb(255, 64, 64);
-                        temp_line_series->setColor(temp_color);
+                        temp_color.append("#E41A1C");
+                        temp_line_series->setColor(QColor(temp_color));
                         break;
                     case 2:
-                        temp_color.setRgb(64, 255, 64);
-                        temp_line_series->setColor(temp_color);
+                        temp_color.append("#377EB8");
+                        temp_line_series->setColor(QColor(temp_color));
                         break;
                     case 3:
-                        temp_color.setRgb(64, 64, 255);
-                        temp_line_series->setColor(temp_color);
+                        temp_color.append("#4DAF4A");
+                        temp_line_series->setColor(QColor(temp_color));
                         break;
                     case 4:
-                        temp_color.setRgb(255, 64, 255);
-                        temp_line_series->setColor(temp_color);
+                        temp_color.append("#FF7F00");
+                        temp_line_series->setColor(QColor(temp_color));
                         break;
                     case 5:
-                        temp_color.setRgb(160, 64, 64);
-                        temp_line_series->setColor(temp_color);
+                        temp_color.append("#FFFF33");
+                        temp_line_series->setColor(QColor(temp_color));
                         break;
                     case 6:
-                        temp_color.setRgb(64, 160, 64);
-                        temp_line_series->setColor(temp_color);
+                        temp_color.append("#984EA3");
+                        temp_line_series->setColor(QColor(temp_color));
                         break;
                     case 7:
-                        temp_color.setRgb(64, 64, 160);
-                        temp_line_series->setColor(temp_color);
+                        temp_color.append("#A65628");
+                        temp_line_series->setColor(QColor(temp_color));
                         break;
                     case 8:
-                        temp_color.setRgb(160, 64, 160);
-                        temp_line_series->setColor(temp_color);
+                        temp_color.append("#17BECF");
+                        temp_line_series->setColor(QColor(temp_color));
                         break;
                     default:
+                        temp_color.append("#000000");
                         temp_line_series->setColor(Qt::black);
                         break;
                 }
@@ -599,6 +602,7 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
 
             pps_boards.at(i)->pps_gui[j].pps_show = 1; // default show all
             pps_boards.at(i)->pps_gui[j].pps_name = temp_name;
+            pps_boards.at(i)->pps_gui[j].pps_color = temp_color;
             pps_boards.at(i)->pps_gui[j].pps_offset_chart_series = temp_line_series;
         }
     }
@@ -634,6 +638,7 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
         for (int j = 0; j < Upa_PpsPerBoard; j++)
         {
             QString temp_name;
+            QString temp_color;
             QLineSeries* temp_line_series = new QLineSeries();
             if (upa->use_open_gl == 1)
             {
@@ -644,58 +649,58 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
             temp_line_series->setPen(temp_pen);
 
             temp_name.clear();
+            temp_color.clear();
             temp_name.append(pps_boards.at(i)->com_port);
             if (j == 0) // this is the reference
             {
                 temp_name.append("_REF (");
                 temp_name.append(pps_boards.at(i)->com_port);
                 temp_name.append("_PPS_REF)");
-                QColor temp_color;
-                temp_color.setRgb(230, 230, 230);
-                temp_line_series->setColor(temp_color);
+                temp_color.append("#E6E6E6");
+                temp_line_series->setColor(QColor(temp_color));
             }
             else
             {
                 temp_name.append("_PPS_");
                 temp_name.append(QString::number(j));
-                QColor temp_color;
                 switch (j) // only 8 Input PPS per analyzer
                 {
-                    case 1:
-                        temp_color.setRgb(255, 64, 64);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 2:
-                        temp_color.setRgb(64, 255, 64);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 3:
-                        temp_color.setRgb(64, 64, 255);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 4:
-                        temp_color.setRgb(255, 64, 255);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 5:
-                        temp_color.setRgb(160, 64, 64);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 6:
-                        temp_color.setRgb(64, 160, 64);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 7:
-                        temp_color.setRgb(64, 64, 160);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 8:
-                        temp_color.setRgb(160, 64, 160);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    default:
-                        temp_line_series->setColor(Qt::black);
-                        break;
+                case 1:
+                    temp_color.append("#E41A1C");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 2:
+                    temp_color.append("#377EB8");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 3:
+                    temp_color.append("#4DAF4A");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 4:
+                    temp_color.append("#FF7F00");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 5:
+                    temp_color.append("#FFFF33");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 6:
+                    temp_color.append("#984EA3");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 7:
+                    temp_color.append("#A65628");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 8:
+                    temp_color.append("#17BECF");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                default:
+                    temp_color.append("#000000");
+                    temp_line_series->setColor(Qt::black);
+                    break;
                 }
             }
 
@@ -707,6 +712,7 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
 
             pps_boards.at(i)->pps_gui[j].pps_show = 1; // default show all
             pps_boards.at(i)->pps_gui[j].pps_name = temp_name;
+            pps_boards.at(i)->pps_gui[j].pps_color = temp_color;
             pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series = temp_line_series;
         }
     }
@@ -746,6 +752,7 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
         for (int j = 0; j < Upa_PpsPerBoard; j++)
         {
             QString temp_name;
+            QString temp_color;
             QLineSeries* temp_line_series = new QLineSeries();
             if (upa->use_open_gl == 1)
             {
@@ -756,58 +763,58 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
             temp_line_series->setPen(temp_pen);
 
             temp_name.clear();
+            temp_color.clear();
             temp_name.append(pps_boards.at(i)->com_port);
             if (j == 0) // this is the reference
             {
                 temp_name.append("_REF (");
                 temp_name.append(pps_boards.at(i)->com_port);
                 temp_name.append("_PPS_REF)");
-                QColor temp_color;
-                temp_color.setRgb(230, 230, 230);
-                temp_line_series->setColor(temp_color);
+                temp_color.append("#E6E6E6");
+                temp_line_series->setColor(QColor(temp_color));
             }
             else
             {
                 temp_name.append("_PPS_");
                 temp_name.append(QString::number(j));
-                QColor temp_color;
                 switch (j) // only 8 Input PPS per analyzer
                 {
-                    case 1:
-                        temp_color.setRgb(255, 64, 64);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 2:
-                        temp_color.setRgb(64, 255, 64);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 3:
-                        temp_color.setRgb(64, 64, 255);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 4:
-                        temp_color.setRgb(255, 64, 255);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 5:
-                        temp_color.setRgb(160, 64, 64);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 6:
-                        temp_color.setRgb(64, 160, 64);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 7:
-                        temp_color.setRgb(64, 64, 160);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    case 8:
-                        temp_color.setRgb(160, 64, 160);
-                        temp_line_series->setColor(temp_color);
-                        break;
-                    default:
-                        temp_line_series->setColor(Qt::black);
-                        break;
+                case 1:
+                    temp_color.append("#E41A1C");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 2:
+                    temp_color.append("#377EB8");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 3:
+                    temp_color.append("#4DAF4A");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 4:
+                    temp_color.append("#FF7F00");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 5:
+                    temp_color.append("#FFFF33");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 6:
+                    temp_color.append("#984EA3");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 7:
+                    temp_color.append("#A65628");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                case 8:
+                    temp_color.append("#17BECF");
+                    temp_line_series->setColor(QColor(temp_color));
+                    break;
+                default:
+                    temp_color.append("#000000");
+                    temp_line_series->setColor(Qt::black);
+                    break;
                 }
             }
 
@@ -819,6 +826,7 @@ Upa_PpsTab::Upa_PpsTab(Upa_UniversalPpsAnalyzer *parent) : QWidget()
 
             pps_boards.at(i)->pps_gui[j].pps_show = 1; // default show all
             pps_boards.at(i)->pps_gui[j].pps_name = temp_name;
+            pps_boards.at(i)->pps_gui[j].pps_color = temp_color;
             pps_boards.at(i)->pps_gui[j].pps_offset_variance_series = temp_line_series;
         }
     }
@@ -1811,7 +1819,6 @@ static void pps_gui_chart_sample(Upa_PpsTab* upa_pps)
 void Upa_PpsTab::pps_gui_timer_chart_run(void)
 {
     int temp_size;
-    QColor temp_color;
     int temp_min;
     int temp_max;
     int temp_range_min;
@@ -1872,49 +1879,11 @@ void Upa_PpsTab::pps_gui_timer_chart_run(void)
                 if (pps_boards.at(i)->pps_gui[j].pps_samples_chart.isEmpty() ||
                     pps_boards.at(i)->pps_gui[j].pps_samples_chart.last().pps_active == 0)
                 {
-                    temp_color.setRgb(128, 128, 128);
-                    pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
+                    pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(QColor("#808080"));
                 }
                 else
                 {
-                    switch (j) // only 8 Input PPS per analyzer
-                    {
-                        case 1:
-                            temp_color.setRgb(255, 64, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
-                            break;
-                        case 2:
-                            temp_color.setRgb(64, 255, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
-                            break;
-                        case 3:
-                            temp_color.setRgb(64, 64, 255);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
-                            break;
-                        case 4:
-                            temp_color.setRgb(255, 64, 255);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
-                            break;
-                        case 5:
-                            temp_color.setRgb(160, 64, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
-                            break;
-                        case 6:
-                            temp_color.setRgb(64, 160, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
-                            break;
-                        case 7:
-                            temp_color.setRgb(64, 64, 160);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
-                            break;
-                        case 8:
-                            temp_color.setRgb(160, 64, 160);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(temp_color);
-                            break;
-                        default:
-                            pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(Qt::black);
-                            break;
-                    }
+                    pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->setColor(QColor(pps_boards.at(i)->pps_gui[j].pps_color));
                 }
             }
         }
@@ -2065,7 +2034,6 @@ void Upa_PpsTab::pps_gui_timer_chart_run(void)
                     temp_string.append("NA, min/max: ");
                     temp_string.append("NA\n");
                 }
-                //cout << "VERBOSE: " << pps_boards.at(i)->pps_gui[j].pps_name.toLatin1().constData() << " accuracy is: " << pps_boards.at(i)->pps_gui[j].pps_avg_diff << "ns +/-" << pps_boards.at(i)->pps_gui[j].pps_std_deviation << "ns" << endl ;
 
                 ui->PpsStatisticsValue->addItem(temp_string);
                 pps_boards.at(i)->pps_gui[j].pps_offset_chart_series->show();
@@ -2151,7 +2119,6 @@ void Upa_PpsTab::pps_gui_timer_histogram_run(void)
 {
     int temp_size;
     int temp_range;
-    QColor temp_color;
     int temp_min;
     int temp_max;
     int temp_range_min;
@@ -2302,49 +2269,11 @@ void Upa_PpsTab::pps_gui_timer_histogram_run(void)
                 if (pps_boards.at(i)->pps_gui[j].pps_samples_histogram.isEmpty() ||
                     pps_boards.at(i)->pps_gui[j].pps_samples_histogram.last().pps_active == 0)
                 {
-                    temp_color.setRgb(128, 128, 128);
-                    pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
+                    pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(QColor("#808080"));
                 }
                 else
                 {
-                    switch (j) // only 8 Input PPS per analyzer
-                    {
-                        case 1:
-                            temp_color.setRgb(255, 64, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
-                            break;
-                        case 2:
-                            temp_color.setRgb(64, 255, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
-                            break;
-                        case 3:
-                            temp_color.setRgb(64, 64, 255);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
-                            break;
-                        case 4:
-                            temp_color.setRgb(255, 64, 255);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
-                            break;
-                        case 5:
-                            temp_color.setRgb(160, 64, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
-                            break;
-                        case 6:
-                            temp_color.setRgb(64, 160, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
-                            break;
-                        case 7:
-                            temp_color.setRgb(64, 64, 160);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
-                            break;
-                        case 8:
-                            temp_color.setRgb(160, 64, 160);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(temp_color);
-                            break;
-                        default:
-                            pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(Qt::black);
-                            break;
-                    }
+                    pps_boards.at(i)->pps_gui[j].pps_offset_histogram_series->setColor(QColor(pps_boards.at(i)->pps_gui[j].pps_color));
                 }
             }
         }
@@ -2578,7 +2507,6 @@ void Upa_PpsTab::pps_calc_timer_variance_run(void)
 void Upa_PpsTab::pps_gui_timer_variance_run(void)
 {
 
-    QColor temp_color;
     double temp_min;
     double temp_max;
     double temp_max_values;
@@ -2655,49 +2583,11 @@ void Upa_PpsTab::pps_gui_timer_variance_run(void)
                 if (pps_boards.at(i)->pps_gui[j].pps_samples_calc_variance.isEmpty() ||
                     pps_boards.at(i)->pps_gui[j].pps_samples_calc_variance.last().pps_active == 0)
                 {
-                    temp_color.setRgb(128, 128, 128);
-                    pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
+                    pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(QColor("#808080"));
                 }
                 else
                 {
-                    switch (j) // only 8 Input PPS per analyzer
-                    {
-                        case 1:
-                            temp_color.setRgb(255, 64, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
-                            break;
-                        case 2:
-                            temp_color.setRgb(64, 255, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
-                            break;
-                        case 3:
-                            temp_color.setRgb(64, 64, 255);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
-                            break;
-                        case 4:
-                            temp_color.setRgb(255, 64, 255);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
-                            break;
-                        case 5:
-                            temp_color.setRgb(160, 64, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
-                            break;
-                        case 6:
-                            temp_color.setRgb(64, 160, 64);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
-                            break;
-                        case 7:
-                            temp_color.setRgb(64, 64, 160);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
-                            break;
-                        case 8:
-                            temp_color.setRgb(160, 64, 160);
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(temp_color);
-                            break;
-                        default:
-                            pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(Qt::black);
-                            break;
-                    }
+                    pps_boards.at(i)->pps_gui[j].pps_offset_variance_series->setColor(QColor(pps_boards.at(i)->pps_gui[j].pps_color));
                 }
             }
         }

@@ -27,7 +27,7 @@
 #include <QSerialPort>
 #include <QNetworkInterface>
 #include <QUdpSocket>
-#if QT_MAJOR_VERSION < 6
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     #include <QMutex>
 #else
     #include <QRecursiveMutex>
@@ -47,7 +47,7 @@ class Upa_CommunicationLib
         QSerialPort com_port;
         QUdpSocket* eth_port;
         QString port_name;
-#if QT_MAJOR_VERSION < 6
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QMutex* com_lock;
 #else
         QRecursiveMutex* com_lock;

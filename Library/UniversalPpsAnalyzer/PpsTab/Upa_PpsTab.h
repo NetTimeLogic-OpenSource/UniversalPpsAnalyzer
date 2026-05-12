@@ -69,7 +69,7 @@ class Upa_PpsConfigScreen;
 class Upa_PpsThresholdScreen;
 }
 
-#if QT_MAJOR_VERSION < 6
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     using namespace QtCharts;
 #endif
 
@@ -164,6 +164,7 @@ public:
     Upa_PpsBoard* pps_board;
     unsigned int pps_index;
     QString pps_name;
+    QString pps_color;
     int pps_show;
     int pps_max_diff;
     int pps_min_diff;

@@ -16,7 +16,7 @@ Upa_PpsConfigScreen::Upa_PpsConfigScreen(Upa_PpsTab *parent) : QDialog()
     //setPalette(pal);
 
     connect(ui->PpsDoneButton, SIGNAL(clicked()), this, SLOT(pps_done_button_clicked()));
-    connect(ui->PpsChangeDelaysAndNamesButton, SIGNAL(clicked()), this, SLOT(pps_change_delays_and_names_button_clicked()));
+    connect(ui->PpsChangeDelaysAndNamesAndColorsButton, SIGNAL(clicked()), this, SLOT(pps_change_delays_and_names_and_colors_button_clicked()));
     connect(ui->PpsAnalyzerComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(pps_analyzer_changed(int)));
     connect(ui->PpsChangeReferenceButton, SIGNAL(clicked()), this, SLOT(pps_change_reference_button_clicked()));
     connect(ui->PpsGraphRefCheckBox, SIGNAL(clicked(bool)), this, SLOT(pps_graph_changed()));
@@ -122,10 +122,43 @@ void Upa_PpsConfigScreen::pps_change_names(void)
     }
 }
 
-void Upa_PpsConfigScreen::pps_change_delays_and_names_button_clicked(void)
+void Upa_PpsConfigScreen::pps_change_colors(void)
+{
+    for (int i = 0; i < pps_tab->pps_boards.size(); i++)
+    {
+        if (ui->PpsAnalyzerComboBox->currentText() == pps_tab->pps_boards.at(i)->com_port)
+        {
+            pps_tab->pps_boards.at(i)->pps_gui[1].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[2].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[3].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[4].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[5].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[6].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[7].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[8].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[8].pps_color.clear();
+
+            pps_tab->pps_boards.at(i)->pps_gui[1].pps_color.append(ui->PpsColorPps1Value->text());
+            pps_tab->pps_boards.at(i)->pps_gui[2].pps_color.append(ui->PpsColorPps2Value->text());
+            pps_tab->pps_boards.at(i)->pps_gui[3].pps_color.append(ui->PpsColorPps3Value->text());
+            pps_tab->pps_boards.at(i)->pps_gui[4].pps_color.append(ui->PpsColorPps4Value->text());
+            pps_tab->pps_boards.at(i)->pps_gui[5].pps_color.append(ui->PpsColorPps5Value->text());
+            pps_tab->pps_boards.at(i)->pps_gui[6].pps_color.append(ui->PpsColorPps6Value->text());
+            pps_tab->pps_boards.at(i)->pps_gui[7].pps_color.append(ui->PpsColorPps7Value->text());
+            pps_tab->pps_boards.at(i)->pps_gui[8].pps_color.append(ui->PpsColorPps8Value->text());
+
+
+            pps_tab->pps_boards.at(i)->pps_gui[0].pps_color.clear();
+            pps_tab->pps_boards.at(i)->pps_gui[0].pps_color.append(ui->PpsColorPpsRefValue->text());
+        }
+    }
+}
+
+void Upa_PpsConfigScreen::pps_change_delays_and_names_and_colors_button_clicked(void)
 {
     pps_change_names();
     pps_change_delays();
+    pps_change_colors();
     pps_save_config();
 }
 
@@ -227,6 +260,16 @@ void Upa_PpsConfigScreen::pps_analyzer_changed(int index)
     ui->PpsNamePps7Value->setEnabled(false);
     ui->PpsNamePps8Value->setEnabled(false);
 
+    ui->PpsColorPpsRefValue->setEnabled(false);
+    ui->PpsColorPps1Value->setEnabled(false);
+    ui->PpsColorPps2Value->setEnabled(false);
+    ui->PpsColorPps3Value->setEnabled(false);
+    ui->PpsColorPps4Value->setEnabled(false);
+    ui->PpsColorPps5Value->setEnabled(false);
+    ui->PpsColorPps6Value->setEnabled(false);
+    ui->PpsColorPps7Value->setEnabled(false);
+    ui->PpsColorPps8Value->setEnabled(false);
+
     ui->PpsGraphRefCheckBox->setEnabled(false);
     ui->PpsGraph1CheckBox->setEnabled(false);
     ui->PpsGraph2CheckBox->setEnabled(false);
@@ -297,6 +340,25 @@ void Upa_PpsConfigScreen::pps_analyzer_changed(int index)
             ui->PpsNamePps6Value->setText(pps_tab->pps_boards.at(i)->pps_gui[6].pps_name);
             ui->PpsNamePps7Value->setText(pps_tab->pps_boards.at(i)->pps_gui[7].pps_name);
             ui->PpsNamePps8Value->setText(pps_tab->pps_boards.at(i)->pps_gui[8].pps_name);
+
+            ui->PpsColorPpsRefValue->setEnabled(true);
+            ui->PpsColorPps1Value->setEnabled(true);
+            ui->PpsColorPps2Value->setEnabled(true);
+            ui->PpsColorPps3Value->setEnabled(true);
+            ui->PpsColorPps4Value->setEnabled(true);
+            ui->PpsColorPps5Value->setEnabled(true);
+            ui->PpsColorPps6Value->setEnabled(true);
+            ui->PpsColorPps7Value->setEnabled(true);
+            ui->PpsColorPps8Value->setEnabled(true);
+            ui->PpsColorPpsRefValue->setText(pps_tab->pps_boards.at(i)->pps_gui[0].pps_color);
+            ui->PpsColorPps1Value->setText(pps_tab->pps_boards.at(i)->pps_gui[1].pps_color);
+            ui->PpsColorPps2Value->setText(pps_tab->pps_boards.at(i)->pps_gui[2].pps_color);
+            ui->PpsColorPps3Value->setText(pps_tab->pps_boards.at(i)->pps_gui[3].pps_color);
+            ui->PpsColorPps4Value->setText(pps_tab->pps_boards.at(i)->pps_gui[4].pps_color);
+            ui->PpsColorPps5Value->setText(pps_tab->pps_boards.at(i)->pps_gui[5].pps_color);
+            ui->PpsColorPps6Value->setText(pps_tab->pps_boards.at(i)->pps_gui[6].pps_color);
+            ui->PpsColorPps7Value->setText(pps_tab->pps_boards.at(i)->pps_gui[7].pps_color);
+            ui->PpsColorPps8Value->setText(pps_tab->pps_boards.at(i)->pps_gui[8].pps_color);
 
             ui->PpsGraphRefCheckBox->setEnabled(true);
             ui->PpsGraph1CheckBox->setEnabled(true);
@@ -458,7 +520,7 @@ void Upa_PpsConfigScreen::pps_load_config(void)
         QByteArray temp_line = temp_file.readLine();
         QString temp_string = QString::fromUtf8(temp_line.data());
 
-        QRegularExpression sep("\\s+");
+        QRegularExpression sep("[;\n]");
         for (int i = 0; i < pps_tab->pps_boards.size(); i++)
         {
             if (true == temp_string.startsWith(pps_tab->pps_boards.at(i)->com_port))
@@ -476,6 +538,11 @@ void Upa_PpsConfigScreen::pps_load_config(void)
                                 pps_tab->pps_boards.at(i)->pps_gui[j].pps_name.clear();
                                 pps_tab->pps_boards.at(i)->pps_gui[j].pps_name.append(temp_string.section(sep, 4, 4));
                             }
+                        }
+                        if ("" != temp_string.section(sep, 5, 5))
+                        {
+                            pps_tab->pps_boards.at(i)->pps_gui[j].pps_color.clear();
+                            pps_tab->pps_boards.at(i)->pps_gui[j].pps_color.append(temp_string.section(sep, 5, 5));
                         }
                     }
                     else if (temp_string.section(sep, 1, 1) == "REF")
@@ -512,20 +579,22 @@ void Upa_PpsConfigScreen::pps_save_config(void)
         for (int j = 0; j < Upa_PpsPerBoard; j++)
         {
             temp_string.append(pps_tab->pps_boards.at(i)->com_port);
-            temp_string.append(" ");
+            temp_string.append(";");
             temp_string.append(QString::number(pps_tab->pps_boards.at(i)->pps_ts[j].ts_core_config->core_instance_nr));
-            temp_string.append(" ");
+            temp_string.append(";");
             temp_string.append(QString::number(pps_tab->pps_boards.at(i)->pps_ctrl[j].pps_delay));
-            temp_string.append(" ");
+            temp_string.append(";");
             temp_string.append(QString::number(pps_tab->pps_boards.at(i)->pps_gui[j].pps_show));
-            temp_string.append(" ");
+            temp_string.append(";");
             temp_string.append(pps_tab->pps_boards.at(i)->pps_gui[j].pps_name);
+            temp_string.append(";");
+            temp_string.append(pps_tab->pps_boards.at(i)->pps_gui[j].pps_color);
             temp_string.append("\n");
         }
         temp_string.append(pps_tab->pps_boards.at(i)->com_port);
-        temp_string.append(" ");
+        temp_string.append(";");
         temp_string.append("REF");
-        temp_string.append(" ");
+        temp_string.append(";");
         temp_string.append(QString::number(pps_tab->pps_boards.at(i)->pps_ref_channel));
         temp_string.append("\n");
     }

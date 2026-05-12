@@ -18,6 +18,7 @@ private:
     Upa_PpsTab* pps_tab;
     void pps_change_delays(void);
     void pps_change_names(void);
+    void pps_change_colors(void);
     void pps_save_config(void);
     void pps_load_config(void);
 
@@ -31,7 +32,7 @@ public:
 private slots:
     // PPS Delay screen
     void pps_done_button_clicked(void);
-    void pps_change_delays_and_names_button_clicked(void);
+    void pps_change_delays_and_names_and_colors_button_clicked(void);
     void pps_change_reference_button_clicked(void);
     void pps_analyzer_changed(int index);
     void pps_graph_changed(void);
